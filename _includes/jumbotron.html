@@ -1,0 +1,36 @@
+<section class="jumbotron geopattern" data-pattern-id="{{ page.title }}">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>{{ page.title }}</h1>
+            <span class="meta-info">
+                {% if page.subtitle %}
+                    {{ page.subtitle }}
+                {% endif %}
+                {% if page.date %}
+                <span class="octicon octicon-calendar"></span> {{ page.date | date: "%Y/%m/%d" }}
+                {% endif %}
+                {% for cat in page.categories %}
+                    <span class="meta-info">
+                        <span class="octicon octicon-file-directory"></span>
+                        <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
+                    </span>
+                {% endfor %}
+                {% for keyword in page.keywords %}
+                    <span class="meta-info">
+                        <span class="octicon octicon-tag"></span>
+                        {{ keyword }}
+                    </span>
+                {% endfor %}
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>

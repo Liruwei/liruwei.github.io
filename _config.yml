@@ -1,0 +1,139 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# ---------------- #
+#   Main Configs   #
+#   Site Settings  #
+# ---------------- #
+baseurl:
+url: https://liruwei.github.io # the base hostname & protocol for your site
+date_format: "ordinal"
+title: Ruwei Li
+subtitle: "活着，开心就好。"
+description: "个人网站"
+keywords: Objective-C, React-Native, JavaScript, Java, Vue.js
+favicon: favicon.ico # Image must be in assets/images
+timezone: China/Macau
+encoding: "utf-8"
+side_bar_repo_limit: 5 # Sidebar to show popular repo
+
+
+# ---------------- #
+#      Author      #
+# ---------------- #
+author: Ruwei Li
+name: Ruwei Li
+organization: Ruwei Li
+organization_url: https://liruwei.github.io
+location: Guangzhou, China
+email: liruwei0109@outlook.com
+company: Yoorstore
+company_url: http://www.yoorstore.com/sy
+github_url: https://github.com/Liruwei
+
+# ---------------- #
+#      Jekyll      #
+#  Build settings  #
+# ---------------- #
+markdown: kramdown
+kramdown:
+  input: GFM
+  enable_coderay: true
+highlighter: rouge
+# Pagination
+paginate: 10
+# paginate_path: 'page:num'
+lsi: false
+quiet: false
+excerpt_separator: "\n\n"
+permalink: /:year/:month/:day/:title/
+## Gem
+gems:
+  - jekyll-paginate
+  - jekyll-geo-pattern
+  - rouge
+  - kramdown
+  - jekyll-github-metadata
+#  - jekyll-sitemap
+#  - jekyll-feed
+
+#     - jekyll-html-pipeline
+#     - jekyll-mentions
+# source:      .
+# destination: ./_site
+
+defaults: []
+
+# ---------------- #
+#    Navigation    #
+# ---------------- #
+navs:
+  -
+    href: /
+    label: Home
+
+  -
+    href: /open-source
+    label: Open-Source
+
+  -
+    href: /blog
+    label: Blog
+
+  -
+    href: /about
+    label: About
+
+
+
+# ---------------- #
+#       RSS        #
+# ---------------- #
+subscribe_rss: /feed.xml
+
+# ---------------- #
+#    Analytics     #
+# ---------------- #
+analytics :
+  provider : google
+  google :
+      tracking_id : 'UA-86879677-1'
+
+# ---------------- #
+#      Comments    #
+# ---------------- #
+# support provider: disqus, duoshuo
+comments_provider: Yoorstore
+# !!!重要!!! 请修改下面两个用户名为你自己申请的
+# !!!Important!!! Please modify usernames below to yours
+duoshuo_username: liruwei
+# disqus_username: xinerd
+# 在使用 disqus 的时候可点击显示多说评论框
+# lazy_load_duoshuo: true
+# Disque
+disque: xinerd.disqus.com
+
+# ---------------- #
+#      Socials     #
+# ---------------- #
+github_username: liruwei
+douban_username: NULL
+facebook_username: NULL
+weibo_username: NULL
+zhihu_username: NULL
+twitter_username: NULL
+url_github: https://github.com/Liruwei
+url_linkedin: https://www.linkedin.com/in/xinerd
+url_weibo: http://weibo.com/xinerd
+url_zhihu: http://www.zhihu.com/people/xinerd
+
+# For about.html. Fell free to create your own!
+skill_software_keywords: [Xcode, SQL, Atom]
+skill_j2ee_keywords: [Spring, Struct, Hibernet, JSP]
+skill_web_keywords: [HTML, CSS, JS, JQuery, Ajax, Vue]
+skill_mobile_app_keywords: [iOS, Android]
+personal_keywords: [React-Native, Java, OC, Objective-C]
