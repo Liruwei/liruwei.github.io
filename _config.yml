@@ -127,9 +127,9 @@ weibo_username: NULL
 zhihu_username: NULL
 twitter_username: NULL
 url_github: https://github.com/Liruwei
-url_linkedin: https://www.linkedin.com/in/xinerd
-url_weibo: http://weibo.com/xinerd
-url_zhihu: http://www.zhihu.com/people/xinerd
+url_linkedin: https://github.com/Liruweid
+url_weibo: https://github.com/Liruwei
+url_zhihu: https://github.com/Liruwei
 
 # For about.html. Fell free to create your own!
 skill_software_keywords: [Xcode, SQL, Atom]
