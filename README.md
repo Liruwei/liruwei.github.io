@@ -1,7 +1,6 @@
 # liruwei.github.io
 Ruwei Li's Blog
 
-
 ## 致谢
 
 本博客主题基于以下三位修改而来
