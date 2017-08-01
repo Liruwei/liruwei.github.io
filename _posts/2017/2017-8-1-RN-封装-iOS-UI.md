@@ -216,6 +216,7 @@ render() {
 
 RCT_EXPORT_METHOD(changeColor:(NSInteger)viewTag) {
   CustomView *view = (CustomView *)self.viewRegistry[@(tag)];
+  //确保是在主线程上执行
   [view performSelectorOnMainThread:@selector(changeColor) 
                          withObject:nil 
                       waitUntilDone:YES];
@@ -278,7 +279,10 @@ const RCTCustomView = requireNativeComponent('RCTCustomView', CustomView);
 <a id="设置componentInterface"></a>
 使用很简单：`NativeModules.CustomView.changeColor(this._UI._rootNodeID);`当然，为了美观，我一般是在CustomView的自定义方法里面调用，这样子，外部使用CustomView.changeColor就不需要传入 _viewTag_ 了。这也是我为什么喜欢用第二种写法来设置componentInterface的原因。
 
-> **注意：**通过输出ViewManager的地址，可以看到地址是不变的，所以我猜测不同类型的ViewManager是一个单例。
+> **注意：**
+> 
+> 1. 通过输出ViewManager的地址，可以看到地址是不变的，所以我猜测不同类型的ViewManager是一个单例。
+> 2. 调用Native方法的时候，如果需要更新UI必须要保证在主线程上执行。
 
 
 
