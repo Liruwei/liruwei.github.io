@@ -99,6 +99,7 @@ const ImageView = requireNativeComponent('RCTImageView', iface);
 export class MapView extends Component {
   static propTypes = {
     pitchEnabled: PropTypes.bool,
+    ...View.propTypes
   };
   render() {
     return <RNTMap {...this.props} />;
@@ -129,6 +130,7 @@ RCT_EXPORT_VIEW_PROPERTY(title, NSString)
 export class CustomView extends Component {
   static propTypes = {
     title: PropTypes.string,
+    ...View.propTypes
   };
   render() {
     return <CustomView {...this.props} />;
@@ -172,6 +174,7 @@ export class CustomView extends Component {
   static propTypes = {
     title: PropTypes.string,
     onClickButton: PropTypes.func,
+    ...View.propTypes
   };
   render() {
     return <RCTCustomView {...this.props} />;
@@ -263,6 +266,7 @@ export class CustomView extends Component {
   static propTypes = {
     title: PropTypes.string,
     onClickButton: PropTypes.func,
+    ...View.propTypes
   };
   
   render() {
