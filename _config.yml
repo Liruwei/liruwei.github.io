@@ -13,7 +13,7 @@ baseurl:
 url: https://liruwei.github.io # the base hostname & protocol for your site
 date_format: "ordinal"
 title: Ruwei Li
-subtitle: "活着，开心就好。"
+subtitle: "开心就好。"
 description: "个人网站"
 keywords: Objective-C, React-Native, JavaScript, Java, Vue.js
 favicon: favicon.ico # Image must be in assets/images
