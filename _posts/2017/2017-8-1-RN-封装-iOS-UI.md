@@ -2,7 +2,7 @@
 layout: post
 title: RN 封装 iOS UI
 category: RN
-tags: [RN,iOS]
+tags: [RN,iOS,android]
 ---
 
 # RN 封装 iOS UI
