@@ -89,8 +89,9 @@ disqus:
     username: RuweiLi
 # https://imsun.net/posts/gitment-introduction/
 gitment:
+    enable: true
     owner: 12146035
-    repo: blog-comments
+    repo: liruwei.github.io
     oauth:
         client_id: 4cf0e12761c2e68dfaf7
         client_secret: 1edfb64418655a20bc22ea0db9c9eb0a0093c7fd
