@@ -12,6 +12,7 @@ favicon: favicon.ico
 timezone: China/Macau
 encoding: "utf-8"
 side_bar_repo_limit: 5
+github: [metadata]
 
 # ---------------- #
 #      Author      #
@@ -19,7 +20,7 @@ side_bar_repo_limit: 5
 author: Ruwei Li
 organization: Ruwei Li
 organization_url: https://liruwei.github.io
-github_username: liruwei
+github_username: RuweiLi
 location: Guangzhou, China
 email: liruwei0109@outlook.com
 
@@ -88,7 +89,7 @@ disqus:
     username: RuweiLi
 # https://imsun.net/posts/gitment-introduction/
 gitment:
-    owner: RuweiLi
+    owner: 12146035
     repo: blog-comments
     oauth:
         client_id: 4cf0e12761c2e68dfaf7
