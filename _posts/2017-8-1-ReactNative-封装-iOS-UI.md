@@ -1,58 +1,66 @@
 ---
 layout: post
-title: RN 封装 iOS UI
-category: RN
-tags: [RN iOS android]
+title: ReactNative 封装 iOS UI
+category: ReactNative
+tags: [ReactNative]
 ---
-
-# RN 封装 iOS UI
 
 最近项目需要实现一个通讯录的功能，一次性显示2000到3000条数据。RN提供的List Component实现起来性能不理想，后来就改用原生实现。为了以后少踩坑，简单写个教程(实现一个CustomView)。效果如下：
 
 ![](https://ws1.sinaimg.cn/mw690/962a6dfegy1fi40l3ecexg20al0c6b2a.gif)
 
-> **注意：**本文章是在 react-native@0.44 下编写的，低版本或者高版本的可能不合适。
-> [demo下载地址](https://github.com/Liruwei/Demos/tree/master/RN%E5%B0%81%E8%A3%85iOS_UI_Demo)
+> **注意：** 
+> 
+> * 本文章是在 react-native@0.44 下编写的，低版本或者高版本的可能不合适。
+> * [demo下载地址](https://github.com/Liruwei/Demos/tree/master/RN%E5%B0%81%E8%A3%85iOS_UI_Demo)
 
 ## 步骤
 
 封装一个iOS的View，步骤十分简单
 
-1. 首先创建一个子类
-2. 添加RCT_EXPORT_MODULE()标记宏
-3. 实现`- (UIView *)view`方法
-4. RN中获取/配置Component
+1. [首先创建一个子类](#bz_1)
+2. [添加RCT_EXPORT_MODULE()标记宏](#bz_2)
+3. [实现`- (UIView *)view`方法](#bz_3)
+4. [实现JavaScript模块。](#bz_4)
 
-**创建子类**
+**<a id="bz_1">1.</a> 创建子类**
 
-~~~objectivec
-/**CustomViewManager.h*/
+~~~
+// CustomViewManager.h
 
 #import <React/RCTViewManager.h>
 @interface CustomViewManager : RCTViewManager
 @end
 ~~~
 
-**添加RCT_EXPORT_MODULE()标记宏以及实现`- (UIView *)view`方法**
+**<a id="bz_2">2.</a> 添加RCT_EXPORT_MODULE()标记宏**
 
-~~~objectivec
-/**CustomViewManager.m*/
+~~~
+// CustomViewManager.m
 
 @implementation CustomViewManager
 
 RCT_EXPORT_MODULE(RCTCustomView)
 
+@end
+~~~
+
+**<a id="bz_3">3.</a> 实现`- (UIView *)view`方法**
+
+~~~
+// CustomViewManager.m
+
 - (UIView *)view {
   //这里的CustomView是自定义的一个View
   return [[CustomView alloc] init];
 }
-@end
 ~~~
 
-**RN中获取/配置Component**
+**<a id="bz_4">4.</a> 实现JavaScript模块。**
 
 ~~~
-/**xxx.js*/
+// xxx.js
+
 import { requireNativeComponent } from 'react-native';
 const CustomView =  requireNativeComponent('RCTCustomView', null);
 
@@ -73,7 +81,7 @@ render() {
 * componentInterface: 配置component，这里可以传两种形式的值，下面会给出
 * extraConfig: 这东西我还没用过，自己查看文档吧[[中文](https://reactnative.cn/docs/0.44/native-component-ios.html)][[英文](http://facebook.github.io/react-native/releases/0.44/docs/native-components-ios.html)]
 
-当我们设置了Native UI的[属性](#iOS属性)/[事件](#iOS事件回调)，必须提供componentInterface，不然就会红屏。componentInterface的值有两种形式。
+当我们设置了Native UI的[属性](#%E5%B1%9E%E6%80%A7)、[事件](#%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83)，必须提供componentInterface，不然就会红屏。componentInterface的值有两种形式。
 
 第一种:
 
@@ -111,21 +119,20 @@ const RNTMap = requireNativeComponent('RNTMap', MapView);
 
 > [一般来说我喜欢第二种写法，原因在添加方法的时候会说到。](#设置componentInterface)
 
-
 ## 属性
 
-~~~objectivec
-/**CustomView.h*/
+~~~
+// CustomView.h
 
 @property (nonatomic, copy) NSString *title;
 
-/**CustomViewManager.m*/
+// CustomViewManager.m
 
 RCT_EXPORT_VIEW_PROPERTY(title, NSString)
 ~~~
 
 ~~~
-/**xxx.js*/
+// xxx.js
 
 export class CustomView extends Component {
   static propTypes = {
@@ -147,14 +154,15 @@ const RCTCustomView = requireNativeComponent('RCTCustomView', RCTCustomView);
 iOS的事件回调其实和属性一样写法，只不过是一个block类型的属性。
 
 ~~~
-/**CustomView.h*/
+// CustomView.h
+
 #import <React/RCTComponent.h>
 
 @interface CustomView : UIView
 @property (nonatomic, copy) RCTBubblingEventBlock onClickButton;
 @end
 
-/**CustomView.m*/
+// CustomView.m
 
 - (IBAction)click:(id)sender {
     if (self.onClickButton) {
@@ -162,13 +170,13 @@ iOS的事件回调其实和属性一样写法，只不过是一个block类型的
     }
 }
 
-/**CustomViewManager.m*/
+// CustomViewManager.m
 
 RCT_EXPORT_VIEW_PROPERTY(onClickButton, RCTBubblingEventBlock)
 ~~~
 
 ~~~
-/**xxx.js*/
+// xxx.js
 
 export class CustomView extends Component {
   static propTypes = {
@@ -182,7 +190,6 @@ export class CustomView extends Component {
 }
 
 const RCTCustomView = requireNativeComponent('RCTCustomView', CustomView);
-
 
 ...
 render() {
@@ -285,8 +292,8 @@ const RCTCustomView = requireNativeComponent('RCTCustomView', CustomView);
 
 > **注意：**
 > 
-> 1. 通过输出ViewManager的地址，可以看到地址是不变的，所以我猜测不同类型的ViewManager是一个单例。
-> 2. 调用Native方法的时候，如果需要更新UI必须要保证在主线程上执行。
+>* 通过输出ViewManager的地址，可以看到地址是不变的，所以我猜测不同类型的ViewManager是一个单例。
+>* 调用Native方法的时候，如果需要更新UI必须要保证在主线程上执行。
 
 
 

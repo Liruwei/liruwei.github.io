@@ -1,11 +1,11 @@
 ---
 layout: post
-title: RN 本地资源文件
-category: RN
-tags: [RN iOS android]
+title: ReactNative 本地资源文件
+category: ReactNative
+tags: [ReactNative]
 ---
 
-# RN 本地资源文件
+
 
 ## iOS资源文件
 
@@ -28,7 +28,7 @@ tags: [RN iOS android]
 **RN目录结构**
 
 ~~~
-//`[]`代表文件夹
+// []代表文件夹
 
 - [rn_project_name]
     - app.js
