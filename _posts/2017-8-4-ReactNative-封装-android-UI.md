@@ -89,8 +89,8 @@ public void setTitle(CustomView view, String title) {
 >**注意：**
 >
 >* ReadableArray，ReadableMap和我们熟悉的Array以及Map不一样，要经过转换才能获取到里面的值。
->* ReadableArray转Object[] ：[ArrayUtil.java]()
->* ReadableMap转Map ： [MapUtil.java]()
+>* ReadableArray转Object[] ：[ArrayUtil.java](https://github.com/Liruwei/Demos/tree/master/RN封装%20android_UI_Demo)
+>* ReadableMap转Map ： [MapUtil.java](https://github.com/Liruwei/Demos/tree/master/RN封装%20android_UI_Demo)
 
 **<a id="bz_4">4.</a> 把这个视图管理类注册到应用程序包的createViewManagers里。**
 
