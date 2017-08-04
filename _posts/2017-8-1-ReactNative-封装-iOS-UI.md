@@ -5,6 +5,8 @@ category: ReactNative
 tags: [ReactNative]
 ---
 
+## 简介
+
 最近项目需要实现一个通讯录的功能，一次性显示2000到3000条数据。RN提供的List Component实现起来性能不理想，后来就改用原生实现。为了以后少踩坑，简单写个教程(实现一个CustomView)。效果如下：
 
 ![](https://ws1.sinaimg.cn/mw690/962a6dfegy1fi40l3ecexg20al0c6b2a.gif)
