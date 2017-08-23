@@ -11,6 +11,4 @@ Ruwei Li's Blog
 
 [码志](http://mazhuang.org)
 
----
-
 感谢！
